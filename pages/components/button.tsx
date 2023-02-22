@@ -1,4 +1,4 @@
-export const Button = ({title}) =>{
+export const Button = ({title}:{title:string}) =>{
 
     return(
         <>

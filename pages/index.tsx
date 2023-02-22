@@ -2,6 +2,7 @@ import type {NextPage} from'next'
 import styles from '../styles/Home.module.css'
 import styled from 'styled-components'
 import { Button } from './components/button'
+import { Footer } from './components/footer'
 
 const H1 = styled.h1`
   color:red;`
@@ -9,14 +10,17 @@ const H1 = styled.h1`
 
 const Home: NextPage = () => {
   return(
-    <div className={styles.container}>
-      <main className={styles.main}>
-      <Button title="こんにちは" />
-      <H1>
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </H1>
-      </main>
-    </div>
+    <>
+      <Footer/>
+      <div className={styles.container}>
+        <main className={styles.main}>
+          <Button title="こんにちは" />
+          <H1>
+            Welcome to <a href="https://nextjs.org">Next.js!</a>
+          </H1>
+        </main>
+      </div>
+    </>
     )
 }
 export default Home
