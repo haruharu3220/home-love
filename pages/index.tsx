@@ -15,7 +15,10 @@ const Home: NextPage = () => {
       <div className={styles.container}>
         <main className={styles.main}>
           <Button title="こんにちは" />
-          <H1>
+          
+          
+          
+          <H1 className='bg-violet-700'>
             Welcome to <a href="https://nextjs.org">Next.js!</a>
           </H1>
         </main>
