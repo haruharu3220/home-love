@@ -26,13 +26,18 @@ const data = [
 const Home: NextPage = () => {
   const [selectedAttribute, setSelectedAttribute] = useState("");
 
+  //attributeはsidebarコンポーネントでこの関数を呼び出す時に設定する変数
   const handleButtonClick = (attribute:string) => {
     // alert(attribute);
     setSelectedAttribute(attribute);
   };
 
-  const filteredData = selectedAttribute
-    ? data.filter((item) => item.attribute === selectedAttribute)
+  //押したボタンによって文字列がselectedAttributeに格納される
+  //selectedAttributeがtrue(=存在する)場合、data配列から
+  //selectedAttributeと同じattributeを持っているものをフィルターしてfilteredData配列に格納する
+
+  const filteredData = selectedAttribute && selectedAttribute!="全体"
+    ? data.filter((item) => (item.attribute === selectedAttribute))
     : data;
 
   return(
