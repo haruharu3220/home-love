@@ -12,6 +12,7 @@ import { Main } from './components/main'
 const H1 = styled.h1`
   color:red;`
 
+//本当はここは自作APIサーバと繋いでDBから登録済みのデータをとってきたかった
 const data = [
   { title: "Card 1", attribute: "キッチン" },
   { title: "Card 2", attribute: "リビング" },
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
   const [selectedAttribute, setSelectedAttribute] = useState("");
 
   const handleButtonClick = (attribute:string) => {
+    // alert(attribute);
     setSelectedAttribute(attribute);
   };
 

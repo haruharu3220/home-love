@@ -1,6 +1,11 @@
 import { Card } from './card'
 
-export const Main = ({ data }) => {
+
+type MainProps = {
+    data: {title: string, attribute: string}[];
+  }
+
+export const Main: React.FC<MainProps> = ({ data }) => {
     return (
       <div>
         <h2>Main</h2>
