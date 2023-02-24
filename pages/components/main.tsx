@@ -7,7 +7,7 @@ type MainProps = {
 
 export const Main: React.FC<MainProps> = ({ data }) => {
     return (
-      <div className='w-2/3 bg-yellow-300'>
+      <div className='flex flex-wrap justify-start w-2/3 bg-yellow-300'>
         {data.map((item) => (
           <Card key={item.title} title={item.title} attribute={item.attribute} />
         ))}
