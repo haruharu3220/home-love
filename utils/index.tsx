@@ -13,14 +13,9 @@ function MyComponent() {
   }, []);
 
   return (
-    // <div>
-    //   <h1>API data:</h1>
-    //   <ul>
-    //     {data.map((item) => (
-    //       <li key={item.id}>{item.name}</li>
-    //     ))}
-    //   </ul>
-    // </div>
+    <div>
+
+    </div>
   );
 }
 
