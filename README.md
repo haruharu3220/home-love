@@ -1,3 +1,20 @@
+# プロダクトの紹介
+
+# 工夫した点
+# 苦戦した点
+Next.jsを使った。事前調査通り画面遷移が簡単にできた。<br>
+ただし、使いこなせていない。生のReactを書いているような感じになってしまった。<br>
+
+TypeScriptを使った。型指定ができて安全になるが、<br>
+いざ使ってみようと思うと癖があってなれなかった。<br
+>
+
+Next.js13でLinkのchildrenにaタグが基本禁止になったりと<br>
+自分が参考にしていた資料とNext.jsのバージョン違いで詰んだ<br>
+
+
+
+
 
 TypeScliptで型指定<br>
 https://dev-k.hatenablog.com/entry/typescript-with-react-props-tutorial-dev-k
