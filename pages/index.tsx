@@ -36,7 +36,7 @@ const Home: NextPage = () => {
   return(
     <>
       <Footer/>
-      <main>
+      <main className="flex">
         {/* サイドバーコンポーネントのpropsにこのファイルで定義した関数を入れる */}
         <Sidebar onButtonClick={handleButtonClick} />
         <Main data={filteredData} />
