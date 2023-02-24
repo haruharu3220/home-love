@@ -1,5 +1,31 @@
 <h1 align="center">プロダクトの紹介 👋</h1>
 
+卒業制作のフロント側を実装しました。 <br>
+家の設備ごとにカードを持っていて、サイドバーのボタンをクリックすると該当する設備のカードが出てきます。 <br>
+本当は自作APIサーバを立てて、コメントや画像を記入→DBに登録→APIで呼び出してフロント(Next.js)で表示 <br>
+までやりたかったのですが、APIサーバは開発できず、<br>
+代わりにハッカーニュースAPIというAPIを使いました。<br>
+
+
+
+今回使用した技術<brs>
+<a href="https://nextjs.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/> </a>
+<a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a>
+<a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a>
+
+
+サーバサイドはExpressを検討予定。<br>
+Larabelはなんでもできるけどリッチすぎて締切までに使いこなせるようになる気がしない。。。<br>
+
+将来的には以下をやりたいです。<br>
+・カードごとにチャットができる
+・いいね機能を追加できる
+・ログイン機能を作成し、投稿ユーザをカードに記入できる
+・カードの削除、修正ができる
+
+
+
+
 # 工夫した点
 # 苦戦した点
 Next.jsを使った。事前調査通り画面遷移が簡単にできた。<br>
@@ -54,7 +80,13 @@ tailwindCSSの無料UIキット
 https://www.tailwind-kit.com/
 <br>
 
+ハッカーニュースAPI<br>
+https://github.com/HackerNews/API
+<br>
+
 
 Readmeの書き方
 https://docs.github.com/ja/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks
+<br>
+https://style.potepan.com/articles/33682.html
 <br>
