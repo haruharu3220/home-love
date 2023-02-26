@@ -1,13 +1,9 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import express from 'express'
 
-type Data = {
-  name: string
-}
+const app = express()
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ name: 'John Doe' })
-}
+app.get('/api/hello', (req, res) => {
+  res.json({ message: 'Hello World! This is a test API' })
+})
+
+export default app
