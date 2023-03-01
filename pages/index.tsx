@@ -1,17 +1,17 @@
-import type {NextPage} from'next'
-import { useState, useEffect } from 'react'
+import type { NextPage } from "next";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import styles from '../styles/Home.module.css'
-import styled from 'styled-components'
-import { Button } from './components/button'
-import { Footer } from './components/footer'
-import { Sidebar } from './components/sidebar';
-import { Main } from './components/main'
-import axios from 'axios';
-
+import styles from "../styles/Home.module.css";
+import styled from "styled-components";
+import { Button } from "./components/button";
+import { Footer } from "./components/footer";
+import { Sidebar } from "./components/sidebar";
+import { Main } from "./components/main";
+import axios from "axios";
 
 const H1 = styled.h1`
-  color:red;`
+  color: red;
+`;
 
 //Postの型だけ定めたインターフェースを定義
 interface Post {
@@ -24,39 +24,39 @@ interface DummyPost {
   messeage: string;
 }
 
-
 //ハッカーニュースAIから記事を20件取得する関数
 export const fetchData = async (): Promise<Post[]> => {
-  const response = await axios.get('https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=40');
+  const response = await axios.get(
+    "https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=40"
+  );
   const data = response.data.hits;
   //map()を使ってtitleとcontentのみを抽出
   const posts = data.map((item: any) => ({
     title: item.title,
     content: item.url,
-    attribute: ['キッチン', 'リビング', '洗面','風呂'][Math.floor(Math.random() * 4)]
+    attribute: ["キッチン", "リビング", "洗面", "風呂"][
+      Math.floor(Math.random() * 4)
+    ],
   }));
   return posts;
 };
 
 //NestJSで作成したAPIサーバからダミーデータを取得する関数　localhost:3000/dummyで取得できる
 export const fetchDummyData = async (): Promise<DummyPost[]> => {
-  const response = await axios.get('http://localhost:3000/dummy');
- 
+  const response = await axios.get("http://localhost:3000/dummy");
+
   const data = await response.data;
   return data;
 };
-
 
 (async () => {
   const data = await fetchDummyData();
   console.log(JSON.stringify(data));
 })();
 
-
 //hello.tsで定義したAPIを呼び値を取得する処理
 export const fetchNextAPIData = async (): Promise<DummyPost[]> => {
-  const response = await axios.get('http://localhost:3001/api/hello');
-  
+  const response = await axios.get("http://localhost:3001/api/hello");
   const data = await response.data;
   return data;
 };
@@ -75,8 +75,6 @@ export const fetchNextAPIData = async (): Promise<DummyPost[]> => {
 //   { title: "Card 5", attribute: "キッチン" },
 //   { title: "Card 6", attribute: "リビング" }
 // ];
-
-
 
 function Home(): JSX.Element {
   const [selectedAttribute, setSelectedAttribute] = useState("");
@@ -100,29 +98,10 @@ function Home(): JSX.Element {
     fetchPosts();
   }, []);
 
-  // //dummy APIからデータを取得する処理
-  // useEffect(() => {
-  //   const fetchDummyData = async () => {
-  //     const response = await fetch('http://localhost:3000/dummy');
-  //     const data = await response.json();
-  //     setDummyData(data);
-  //   };
-  //   fetchDummyData();
-  // }, []);
-  //  useEffect(() => {
-  //   const fetchDummyData = async () => {
-  //     const response = await fetchDummyData();
-  //     setDummyData(response);
-  //   };
-  //   fetchDummyData();
-  // }, []);
-
-  const filteredData = selectedAttribute && selectedAttribute != "全体"
-    ? data.filter((item) => (item.attribute === selectedAttribute))
-    : data;
-
-
-
+  const filteredData =
+    selectedAttribute && selectedAttribute != "全体"
+      ? data.filter((item) => item.attribute === selectedAttribute)
+      : data;
 
   return (
     <>
@@ -139,7 +118,6 @@ function Home(): JSX.Element {
 
       {/* フッターコンポーネントを呼び出す */}
 
-
       {/* <div className={styles.container}>
               <main className={styles.main}>
                 <Button title="こんにちは" />
@@ -147,7 +125,6 @@ function Home(): JSX.Element {
                 <H1 className='bg-violet-700'>
                   Welcome to <a href="https://nextjs.org">Next.js!</a>
                 </H1> */}
-
 
       {/* <Link href="/">
               <a>Home</a>
@@ -159,10 +136,4 @@ function Home(): JSX.Element {
     </>
   );
 }
-export default Home
-
-const SSidebar = styled.div`
-    width:1/3;
-    background-color:blue;
-    height:100%;
-`;
+export default Home;
