@@ -1,0 +1,14 @@
+import React from "react";
+
+const test = () => {
+  return (
+    <>
+      <div>test</div>
+      <div>test</div>
+      <div>test</div>
+      <div>test</div>
+    </>
+  );
+};
+
+export default test;
