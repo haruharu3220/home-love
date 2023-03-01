@@ -7,7 +7,16 @@ type SidebarProps = {
 
 export const Sidebar: React.FC<SidebarProps> = ({ onButtonClick }) => {
   const FacilityContext = React.createContext("");
-  const [facility, setFacility] = useState(0);
+  const [facility, setFacility] = useState([
+    "全体",
+    "キッチン",
+    "リビング",
+    "洗面",
+    "トイレ",
+    "洗濯",
+    "玄関",
+    "その他",
+  ]);
 
   // const selectFacility = () =>{
   //     const buttonText = event.target.textContent;
@@ -29,31 +38,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ onButtonClick }) => {
         <div className="sr-only" aria-live="polite"></div>
       </form>
 
-      <div className="flex">
-        <div className="py-2 my-4 w-1/5 text-center">未完了</div>
-        <button
-          onClick={() => onButtonClick("全体")}
-          className="py-2 px-4 w-4/5  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  opacity-70 cursor-not-allowed rounded-lg my-4">
-          全体
-        </button>
-      </div>
-
-      <button
-        onClick={() => onButtonClick("キッチン")}
-        className="py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  opacity-70 cursor-not-allowed rounded-lg my-4">
-        キッチン
-      </button>
-
-      <button
-        onClick={() => onButtonClick("リビング")}
-        className="py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  opacity-70 cursor-not-allowed rounded-lg my-4">
-        リビング
-      </button>
-      <button
-        onClick={() => onButtonClick("洗面")}
-        className="py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  opacity-70 cursor-not-allowed rounded-lg my-4">
-        洗面
-      </button>
+      {facility.map((item) => {
+        return (
+          <div key={item} className="flex">
+            <div className="py-2 my-4 w-1/5 text-center">未完了</div>
+            <button
+              onClick={() => onButtonClick("全体")}
+              className="py-2 px-4 w-4/5  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  opacity-70 cursor-not-allowed rounded-lg my-4">
+              {item}
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 };
