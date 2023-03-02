@@ -111,7 +111,7 @@ function Home(): JSX.Element {
   }, []);
 
   const filteredData =
-    selectedAttribute && selectedAttribute != "全体"
+    selectedAttribute != "全体"
       ? data.filter((item) => item.attribute === selectedAttribute)
       : data;
 
