@@ -49,6 +49,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ onButtonClick }) => {
     setFacility(updatedFacility);
     handleCloseModal();
   };
+  //削除ボタンを押したとき、対応する設備を削除する関数
+  const handleDelete = (name: string) => {
+    console.log("削除ボタンクリック");
+
+    //クリックした削除ボタンの設備名を取得
+    setSelectedFacility(name);
+
+    const updatedFacility = facility.filter((f) => f.name !== name);
+    setFacility(updatedFacility);
+    console.log(updatedFacility);
+    setSelectedFacility("");
+  };
 
   //モーダルを閉じ、ステータスを全て元の色に戻す関数
   const handleCloseModal = () => {
@@ -91,7 +103,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onButtonClick }) => {
               </button>
             </div>
             {/* 削除ボタン */}
-            <button>削除</button>
+            <button onClick={() => handleDelete(item.name)}>削除</button>
           </div>
         );
       })}
