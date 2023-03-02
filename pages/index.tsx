@@ -34,8 +34,20 @@ export const fetchData = async (): Promise<Post[]> => {
   const posts = data.map((item: any) => ({
     title: item.title,
     content: item.url,
-    attribute: ["キッチン", "リビング", "洗面", "風呂"][
-      Math.floor(Math.random() * 4)
+    attribute: [
+      "キッチン",
+      "リビング",
+      "洗面",
+      "トイレ",
+      "洗濯",
+      "玄関",
+      "その他",
+    ][
+      Math.floor(
+        Math.random() * //ランダムで属性を決める
+          ["キッチン", "リビング", "洗面", "トイレ", "洗濯", "玄関", "その他"]
+            .length
+      )
     ],
   }));
   return posts;

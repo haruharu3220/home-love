@@ -47,7 +47,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ onButtonClick }) => {
       }
     });
     setFacility(updatedFacility);
+    handleCloseModal();
+  };
+
+  //モーダルを閉じ、ステータスを全て元の色に戻す関数
+  const handleCloseModal = () => {
     setShowModal(false);
+    setSelectedFacility("");
   };
 
   return (
@@ -67,13 +73,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ onButtonClick }) => {
       {facility.map((item) => {
         return (
           <div key={item.name} className="flex">
+            {/* ステータスボタン */}
             <div
               onClick={() => handleClick(item.name, item.status)}
               className={`py-2 my-4 w-1/5 text-center cursor-pointer ${
                 selectedFacility === item.name ? "bg-gray-300" : ""
-              }`}>
-              {item.status}
+              }
+              `}>
+              {item.status}　{/* ステータス */}
             </div>
+            {/* 設備名 */}
             <div className="py-2 px-4 w-4/5 ">
               <button
                 onClick={() => onButtonClick(item.name)}
@@ -81,12 +90,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ onButtonClick }) => {
                 {item.name}
               </button>
             </div>
-
-            {/* <button
-              onClick={() => setSelectedFacility(item.name)}
-              className="py-2 px-4 w-4/5  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  opacity-70 cursor-not-allowed rounded-lg my-4">
-              {item}
-            </button> */}
+            {/* 削除ボタン */}
+            <button>削除</button>
           </div>
         );
       })}
@@ -94,7 +99,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ onButtonClick }) => {
       {showModal && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
           <div className="z-2 w-1/2 p-4 h-32 bg-white">
-            <button onClick={() => setShowModal(false)}>Close</button>
+            <button
+              //モーダルを閉じるボタンを押したら、モーダルを閉じる
+              onClick={() => handleCloseModal()}>
+              Close
+            </button>
             <br />
             <button onClick={() => handleStatusChange("未完了")}>未完了</button>
             <br />
