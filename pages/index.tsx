@@ -18,10 +18,13 @@ interface Post {
   title: string;
   content: string;
   attribute: string;
+  user: string; //投稿者の名前
+  date: Date; //投稿日時
 }
 
 interface DummyPost {
-  messeage: string;
+  id: number;
+  messuage: string;
 }
 
 //ハッカーニュースAIから記事を20件取得する関数
@@ -54,7 +57,7 @@ export const fetchData = async (): Promise<Post[]> => {
 };
 
 //NestJSで作成したAPIサーバからダミーデータを取得する関数　localhost:3000/dummyで取得できる
-export const fetchDummyData = async (): Promise<DummyPost[]> => {
+export const fetchDummyData = async (): Promise<DummyPost> => {
   const response = await axios.get("http://localhost:3000/dummy");
 
   const data = await response.data;
@@ -67,7 +70,7 @@ export const fetchDummyData = async (): Promise<DummyPost[]> => {
 })();
 
 //hello.tsで定義したAPIを呼び値を取得する処理
-export const fetchNextAPIData = async (): Promise<DummyPost[]> => {
+export const fetchNextAPIData = async (): Promise<DummyPost> => {
   const response = await axios.get("http://localhost:3001/api/hello");
   const data = await response.data;
   return data;
@@ -91,7 +94,7 @@ export const fetchNextAPIData = async (): Promise<DummyPost[]> => {
 function Home(): JSX.Element {
   const [selectedAttribute, setSelectedAttribute] = useState("");
   const [data, setData] = useState<Post[]>([]);
-  const [dummyData, setDummyData] = useState<DummyPost[]>([]);
+  const [dummyData, setDummyData] = useState<DummyPost>();
 
   //attributeはsidebarコンポーネントでこの関数を呼び出す時に設定する変数
   const handleButtonClick = (attribute: string) => {
@@ -119,7 +122,8 @@ function Home(): JSX.Element {
     <>
       <Footer />
       <div>
-        {dummyData ? <div>{dummyData.messeage}</div> : <div>Loading...</div>}
+        {/* dummyDataが存在すればデータの中身を表示、存在しなければLoading...を表示 */}
+        {dummyData ? <div>{dummyData.messuage}</div> : <div>Loading...</div>}
       </div>
 
       <main className="flex">

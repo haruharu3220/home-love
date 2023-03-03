@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mysql from "mysql2/promise";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export const abc = async (req: NextApiRequest, res: NextApiResponse) => {
   const connection = await mysql.createConnection({
     host: "localhost",
     user: "root",
