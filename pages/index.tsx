@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styles from "../styles/Home.module.css";
 import styled from "styled-components";
-import { Button } from "./components/button";
-import { Footer } from "./components/footer";
-import { Sidebar } from "./components/sidebar";
-import { Main } from "./components/main";
+import { Button } from "../components/button";
+import { Footer } from "../components/footer";
+import { Sidebar } from "../components/sidebar";
+import { Main } from "../components/main";
 import axios from "axios";
 
 const H1 = styled.h1`
